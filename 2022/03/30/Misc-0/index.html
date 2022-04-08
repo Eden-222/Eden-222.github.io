@@ -476,7 +476,7 @@
 <p>在python中运行一段代码<strong>print(import(‘time’).time())</strong></p>
 <p>得到<strong>1646473872.99</strong>，放在ARCHPR中进行破解，掩码：15????????.??破解得到1558080832.15，即可得到flag</p>
 <h5 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h5><p>掩码攻击，以ISCC 2017 Misc-06为例，题目给了一个jpg图片，用0x02中的方法分离出加密的压缩包，根据题目提示：注意署名， 构造????LiHua的掩码（?可在自己定义的字符集中任意选择）进行掩码攻击，如下图：</p>
-<p>[<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408101848911.png" alt="image-20220408101848911"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408101848911.png" alt="image-20220408101848911"></p>
 <p>攻击结果如下，找到密码</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408101926775.png" alt="image-20220408101926775"></p>
 <h3 id="BUUCTF–-ACTF新生赛2020-outguess"><a href="#BUUCTF–-ACTF新生赛2020-outguess" class="headerlink" title="BUUCTF–[ACTF新生赛2020]outguess"></a>BUUCTF–[ACTF新生赛2020]outguess</h3><h5 id="知识点：outguess隐写"><a href="#知识点：outguess隐写" class="headerlink" title="知识点：outguess隐写"></a>知识点：outguess隐写</h5><p>找到一张能打开的mmm.jpg，打开属性看看，得到一串社会主义编码，解得为<strong>abc</strong></p>
