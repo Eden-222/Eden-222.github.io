@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Misc, MotorcycleBoy">
-    <meta name="description" content="BUUCTF–[GUET-CTF2019]zips知识点：掩码攻击，python代码（看懂）解压得222.zip（加密），尝试用ziperello暴力破解
-得111.zip（加密），查看师傅wp得知111.zip*为伪加密
-修改打开，得se">
+    <meta name="keywords" content="小记4.19, MotorcycleBoy">
+    <meta name="description" content="小记4.194.18下晚自习经过田径场东门，听到有人在唱歌，当即决定去瞧瞧，之前刷视频的时候刷到其他学校田径场的一些活动啥的，超级羡慕，飞奔过去，顺带着小跑一公里，进田径场，只见东边围绕着有百几十号人，还有黄色的灯光，走近看
+
+我感觉现场的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Misc | MotorcycleBoy</title>
+    <title>小记4.19 | MotorcycleBoy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Misc</h1>
+                    <h1 class="description center-align post-title">小记4.19</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%88%B7%E9%A2%98/">
-                                <span class="chip bg-color">刷题</span>
+                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                                <span class="chip bg-color">生活</span>
                             </a>
                         
                     </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-03-30
+                    2022-04-19
                 </div>
                 
 
@@ -469,65 +469,24 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="BUUCTF–-GUET-CTF2019-zips"><a href="#BUUCTF–-GUET-CTF2019-zips" class="headerlink" title="BUUCTF–[GUET-CTF2019]zips"></a>BUUCTF–[GUET-CTF2019]zips</h3><h5 id="知识点：掩码攻击，python代码（看懂）"><a href="#知识点：掩码攻击，python代码（看懂）" class="headerlink" title="知识点：掩码攻击，python代码（看懂）"></a>知识点：掩码攻击，python代码（看懂）</h5><p>解压得222.zip（加密），尝试用ziperello暴力破解</p>
-<p>得111.zip（加密），查看师傅wp得知111.zip*为伪加密</p>
-<p>修改打开，得setup.sh和flag.zip（加密），用记事本打开setup.sh</p>
-<p>wp中说flag.zip（加密）是用掩码攻击破解</p>
-<p>在python中运行一段代码<strong>print(import(‘time’).time())</strong></p>
-<p>得到<strong>1646473872.99</strong>，放在ARCHPR中进行破解，掩码：15????????.??破解得到1558080832.15，即可得到flag</p>
-<h5 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h5><p>掩码攻击，以ISCC 2017 Misc-06为例，题目给了一个jpg图片，用0x02中的方法分离出加密的压缩包，根据题目提示：注意署名， 构造????LiHua的掩码（?可在自己定义的字符集中任意选择）进行掩码攻击，如下图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408101848911.png" alt="image-20220408101848911"></p>
-<p>攻击结果如下，找到密码</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408101926775.png" alt="image-20220408101926775"></p>
-<h3 id="BUUCTF–-ACTF新生赛2020-outguess"><a href="#BUUCTF–-ACTF新生赛2020-outguess" class="headerlink" title="BUUCTF–[ACTF新生赛2020]outguess"></a>BUUCTF–[ACTF新生赛2020]outguess</h3><h5 id="知识点：outguess隐写"><a href="#知识点：outguess隐写" class="headerlink" title="知识点：outguess隐写"></a>知识点：outguess隐写</h5><p>找到一张能打开的mmm.jpg，打开属性看看，得到一串社会主义编码，解得为<strong>abc</strong></p>
-<p>通过了解outguess，在kali中安装outguess工具，用outguess命令解出<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302139915.png" alt="截图_2022-03-06_02-09-55"></p>
-<h5 id="补充：-1"><a href="#补充：-1" class="headerlink" title="补充："></a>补充：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outguess -k &#x27;密码&#x27; -r 要解密的文件 输出结果的文件名</span><br></pre></td></tr></table></figure>
-
-<h3 id="BUUCTF–九连环"><a href="#BUUCTF–九连环" class="headerlink" title="BUUCTF–九连环"></a>BUUCTF–九连环</h3><h5 id="知识点：文件分离，steghide隐写"><a href="#知识点：文件分离，steghide隐写" class="headerlink" title="知识点：文件分离，steghide隐写"></a>知识点：文件分离，steghide隐写</h5><p>得到123456cry.jpg，查看属性，010editor查看，未发现什么</p>
-<p>再放到kali中binwalk，发现存在zip</p>
-<p><strong>binwalk -e 图片名</strong>进行分离，得到一个asd文件夹和4c68.zip</p>
-<p>asd中存在一张good.jpg图片和qwe.zip，查看wp时发现要用steghide解密</p>
-<p><strong>steghide extract -sf good.jpg</strong>,要输密码，此题无密码直接敲回车</p>
-<p>得到ko.txt，打开有一串密码，放入加密的flag.txt</p>
-<h3 id="BUUCTF–-SWPU2019-我有一只马里奥"><a href="#BUUCTF–-SWPU2019-我有一只马里奥" class="headerlink" title="BUUCTF–[SWPU2019]我有一只马里奥"></a>BUUCTF–[SWPU2019]我有一只马里奥</h3><h5 id="知识点：ntfs流"><a href="#知识点：ntfs流" class="headerlink" title="知识点：ntfs流"></a>知识点：ntfs流</h5><p>得到attachment.exe，运行，出现1.txt</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147275.png" alt="image-20220306210157765"></p>
-<p>去搜索发现要下载<strong>ntfs流</strong>的软件，还看到一些wp中写打开所在目录的cmd</p>
-<p>输入notepad 1.txt:flag.txt，随即弹出flag</p>
-<h3 id="BUUCTF–谁赢了比赛？"><a href="#BUUCTF–谁赢了比赛？" class="headerlink" title="BUUCTF–谁赢了比赛？"></a>BUUCTF–谁赢了比赛？</h3><p>who_won_the_game.png图片，010editor打开</p>
-<p>发现有隐藏的东西，放入kali中，binwalk分离</p>
-<p>得到15D2DC.rar*，用ARCHPR尝试破解</p>
-<p>得到hehe.gif，就是一帧帧的下棋动图，查看wp</p>
-<p>stegsolve&gt;&gt;Fram Browser,某一帧右下角有一串字符(do_you_know_where_is_the_flag)</p>
-<p>save保存此帧，然后再将其放到steghide</p>
-<p>向左按一下，得到二维码，用桌面二维码扫描器扫一下，即得flag</p>
-<h3 id="BUUCTF–-GXYCTF2019-gakki"><a href="#BUUCTF–-GXYCTF2019-gakki" class="headerlink" title="BUUCTF–[GXYCTF2019]gakki"></a>BUUCTF–[GXYCTF2019]gakki</h3><h5 id="知识点：词频分析"><a href="#知识点：词频分析" class="headerlink" title="知识点：词频分析"></a>知识点：词频分析</h5><p>wolaopo.jpg，放入kali中binwalk，发现存在.rar，再进行分离</p>
-<p>发现其有加密，放入ARCHPR暴力破解，得到flag.txt</p>
-<p>打开为乱码，搜索wp，得知为词频分析，通过脚本跑，得到flag</p>
-<h3 id="BUUCTF–-WUSTCTF2020-find-me"><a href="#BUUCTF–-WUSTCTF2020-find-me" class="headerlink" title="BUUCTF–[WUSTCTF2020]find_me"></a>BUUCTF–[WUSTCTF2020]find_me</h3><h5 id="知识点：盲文编码"><a href="#知识点：盲文编码" class="headerlink" title="知识点：盲文编码"></a>知识点：盲文编码</h5><p>得到一张jpg图片，查看属性</p>
-<p>有一串奇怪的编码：**⡇⡓⡄⡖⠂⠀⠂⠀⡋⡉⠔⠀⠔⡅⡯⡖⠔⠁⠔⡞⠔⡔⠔⡯⡽⠔⡕⠔⡕⠔⡕⠔⡕⠔⡕⡍=**，去搜索，没查到，查看wp时说是盲文编码<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408102605371.png" alt="image-20220408102605371"></p>
-<p>解密即得flag</p>
-<h3 id="BUUCTF–黑客帝国"><a href="#BUUCTF–黑客帝国" class="headerlink" title="BUUCTF–黑客帝国"></a>BUUCTF–黑客帝国</h3><h5 id="知识点：文件头分析，archpr爆破"><a href="#知识点：文件头分析，archpr爆破" class="headerlink" title="知识点：文件头分析，archpr爆破"></a>知识点：文件头分析，archpr爆破</h5><p>7ecb86887bd03535a7f9959e934e901e.txt，放入010editor分析，526172211为rar文件头</p>
-<p>将整段编码放入16进制编辑器中，保存至rar，发现有加密</p>
-<p>放入archpr中爆破，得到一个png图片，放入010editor中</p>
-<p>看到尾部为FF D9（jpg图片文件尾），而文件头为png，所以将其改为jpg（FF D8），即可打开图片得到flag</p>
-<h3 id="BUUCTF–sqltest"><a href="#BUUCTF–sqltest" class="headerlink" title="BUUCTF–sqltest"></a>BUUCTF–sqltest</h3><h5 id="知识点：流量分析，tshark提取"><a href="#知识点：流量分析，tshark提取" class="headerlink" title="知识点：流量分析，tshark提取"></a>知识点：流量分析，tshark提取</h5><p>得到sqltest.pcapng，直接放入kali&gt;&gt;wireshark</p>
-<p>看到HTTP，追踪流，发现sql语句，将所有sql语句保存下来</p>
-<p>使用tshark提取，终端输入命令<strong>tshark -r sqltest.pcapng -Y “http.request” -T fields -e http.request.full_uri &gt; data.txt</strong></p>
-<p> 将data.txt保存至本机，通过wp中的脚本（python还没学，原理不懂）进行提取，即得flag</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302139971.png" alt="image-20220309174247887"></p>
-<h5 id="补充：-2"><a href="#补充：-2" class="headerlink" title="补充："></a>补充：</h5><p>tshark提取<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147343.png" alt="image-20220309174050786"></p>
-<p>参考</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yunqian2017/p/15124198.html">https://www.cnblogs.com/yunqian2017/p/15124198.html</a></p>
-<h3 id="BUUCTF–-HBNIS2018-低个头"><a href="#BUUCTF–-HBNIS2018-低个头" class="headerlink" title="BUUCTF–[HBNIS2018]低个头"></a>BUUCTF–[HBNIS2018]低个头</h3><h5 id="知识点：脑洞，键盘加密（低级）"><a href="#知识点：脑洞，键盘加密（低级）" class="headerlink" title="知识点：脑洞，键盘加密（低级）"></a>知识点：脑洞，键盘加密（低级）</h5><p>根据提示，查看wp，看键盘，打出txt中所有字符的形状为CTF<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147307.png" alt="image-20220310210944253"></p>
-<p>flag{CTF}</p>
-<h3 id="BUUCTF–我吃三明治"><a href="#BUUCTF–我吃三明治" class="headerlink" title="BUUCTF–我吃三明治"></a>BUUCTF–我吃三明治</h3><p>flag.jpg，010editor分析，应该是存在隐藏的东西的</p>
-<p>放入kali中<strong>binwalk -e flag.jpg</strong>，发现其中有两张jpg图片</p>
-<p>foremost分离，得到两张图片</p>
-<p>首先想到XOR，试过发现不行（以上想复杂了）</p>
-<p>查看wp，在第二张图片的开头就有一串base32编码，解码即得flag</p>
-<h3 id="BUUCTF–-ACTF新生赛2020-NTFS数据流"><a href="#BUUCTF–-ACTF新生赛2020-NTFS数据流" class="headerlink" title="BUUCTF–[ACTF新生赛2020]NTFS数据流"></a>BUUCTF–[ACTF新生赛2020]NTFS数据流</h3><h5 id="知识点：NTFS数据流分析"><a href="#知识点：NTFS数据流分析" class="headerlink" title="知识点：NTFS数据流分析"></a>知识点：NTFS数据流分析</h5><p>解压下来存在两个.rar，有一个能打开，且293.txt里说存在flag</p>
-<p>搜索wp，说此类问题必须要用<strong>Winrar</strong>进行解压，才能得到ntfs流</p>
-<p>然后在解压的目录下cmd，输入<strong>notepad 293.txt:flag.txt</strong>，即得到flag<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147548.png" alt="image-20220311200447486"></p>
+                <h1 id="小记4-19"><a href="#小记4-19" class="headerlink" title="小记4.19"></a>小记4.19</h1><h2 id="4-18"><a href="#4-18" class="headerlink" title="4.18"></a>4.18</h2><p>下晚自习经过田径场东门，听到有人在唱歌，当即决定去瞧瞧，之前刷视频的时候刷到其他学校田径场的一些活动啥的，超级羡慕，飞奔过去，顺带着小跑一公里，进田径场，只见东边围绕着有百几十号人，还有黄色的灯光，走近看</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202204191741839.jpg" alt="IMG_20220418_214007"></p>
+<p>我感觉现场的氛围没有那么的燃，没有炸裂的感觉</p>
+<p>乐队的演出中规中矩吧，哈哈哈哈我要求多了呃呃呃</p>
+<p>可惜就听到了两首歌，还是很满足的啦啦啦</p>
+<p><video src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/video_20220418_214042.mp4"></video></p>
+<p><video src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/新视频.mp4"></video></p>
+<p>中午的时候看的海绵宝宝</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202204192249269.jpg" alt="wx_camera_1650257489247"></p>
+<p>真的是小孩看太过幼稚，大学生看刚刚好</p>
+<h2 id="4-19"><a href="#4-19" class="headerlink" title="4.19"></a>4.19</h2><p>又到了美好的星期二，上午课间间隔40分钟</p>
+<p>去小广场荡荡秋千，看小孩子玩耍，嘿嘿嘿</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202204192253457.jpg" alt="IMG_20220419_100855"></p>
+<p>lp说全国统一的灰色裤子，哈哈哈哈</p>
+<p>今天解封了，开心</p>
+<p>瑞幸咖啡狠狠爱住了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202204192259020.jpg" alt="wx_camera_1650346230426"></p>
+<p>中午吃的浏阳蒸菜哦，香得很~~~</p>
 
                 
             </div>
@@ -554,7 +513,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/03/30/Misc-0/">http://example.com/2022/03/30/Misc-0/</a>
+                    <a href="http://example.com/2022/04/19/%E5%B0%8F%E8%AE%B04-19/">http://example.com/2022/04/19/%E5%B0%8F%E8%AE%B04-19/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,8 +551,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%88%B7%E9%A2%98/">
-                                    <span class="chip bg-color">刷题</span>
+                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                                    <span class="chip bg-color">生活</span>
                                 </a>
                             
                         </div>
@@ -767,9 +726,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/04/19/%E5%B0%8F%E8%AE%B04-19/">
                     <div class="card-image">
@@ -787,9 +747,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -798,6 +758,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -816,13 +777,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/17/hello-world/">
+                <a href="/2022/03/30/Misc-0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Misc">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Misc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,7 +794,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-30
                             </span>
                         <span class="publish-author">
                             
@@ -842,6 +803,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%88%B7%E9%A2%98/">
+                        <span class="chip bg-color">刷题</span>
+                    </a>
+                    
                 </div>
                 
             </div>
