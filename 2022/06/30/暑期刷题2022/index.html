@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小记, MotorcycleBoy">
-    <meta name="description" content="小记4.18下晚自习经过田径场东门，听到有人在唱歌，当即决定去瞧瞧，之前刷视频的时候刷到其他学校田径场的一些活动啥的，超级羡慕，飞奔过去，顺带着小跑一公里，进田径场，只见东边围绕着有百几十号人，还有黄色的灯光，走近看
-
-我感觉现场的氛围没有">
+    <meta name="keywords" content="暑期刷题2022, MotorcycleBoy">
+    <meta name="description" content="2022DASCTF MAY 出题人挑战赛Misc|Workingrootme说明：ubuntu 123456请使用ssh连接hint：flag位置在/root/flag.txt
+ssh连接
+123456ssh -p 26245 ubunt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小记 | MotorcycleBoy</title>
+    <title>暑期刷题2022 | MotorcycleBoy</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小记</h1>
+                    <h1 class="description center-align post-title">暑期刷题2022</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                <span class="chip bg-color">生活</span>
+                            <a href="/tags/MISC/">
+                                <span class="chip bg-color">MISC</span>
                             </a>
                         
                     </div>
@@ -448,7 +448,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-04-19
+                    2022-06-30
                 </div>
                 
 
@@ -469,73 +469,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="小记"><a href="#小记" class="headerlink" title="小记"></a>小记</h1><h2 id="4-18"><a href="#4-18" class="headerlink" title="4.18"></a>4.18</h2><p>下晚自习经过田径场东门，听到有人在唱歌，当即决定去瞧瞧，之前刷视频的时候刷到其他学校田径场的一些活动啥的，超级羡慕，飞奔过去，顺带着小跑一公里，进田径场，只见东边围绕着有百几十号人，还有黄色的灯光，走近看</p>
-<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202205182222302.jpeg" alt="IMG_20220418_214007"></p>
-<p>我感觉现场的氛围没有那么的燃，没有炸裂的感觉</p>
-<p>乐队的演出中规中矩吧，哈哈哈哈我要求多了呃呃呃</p>
-<p>可惜就听到了两首歌，还是很满足的啦啦啦</p>
-<p>一</p>
-<video width="560" height="315" controls>
-    <source src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/video_20220418_214042.mp4" type="video/mp4">
-</video>
+                <h2 id="2022DASCTF-MAY-出题人挑战赛"><a href="#2022DASCTF-MAY-出题人挑战赛" class="headerlink" title="2022DASCTF MAY 出题人挑战赛"></a>2022DASCTF MAY 出题人挑战赛</h2><h3 id="Misc-Working"><a href="#Misc-Working" class="headerlink" title="Misc|Working"></a>Misc|Working</h3><h4 id="rootme"><a href="#rootme" class="headerlink" title="rootme"></a>rootme</h4><h5 id="说明：ubuntu-123456请使用ssh连接"><a href="#说明：ubuntu-123456请使用ssh连接" class="headerlink" title="说明：ubuntu 123456请使用ssh连接"></a>说明：ubuntu 123456请使用ssh连接</h5><p>hint：flag位置在/root/flag.txt</p>
+<p>ssh连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 26245 ubuntu@node4.buuoj.cn</span><br><span class="line"></span><br><span class="line">ssh远程连接</span><br><span class="line">指令 ssh -p 27414 root@node4.buuoj.cn</span><br><span class="line">#-p指定端口，root为用户名，@后是ip地址</span><br><span class="line">第一次登陆输入yes</span><br></pre></td></tr></table></figure>
 
+<p>再来一手suid提权</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -perm -u=s -type f 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
 
-<p>二</p>
-<video width="560" height="315" controls>
-    <source src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/新视频.mp4" type="video/mp4">
-</video>
+<p>存在date</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302130328.png" alt="image-20220523205606270"></p>
+<p>根据提示，file为flag.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -f/root/flag.txt</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DASCTF&#123;df061215-d984-4c40-b21a-6eb47d605ae0&#125;</span><br></pre></td></tr></table></figure>
 
-
-<p>中午的时候看的海绵宝宝</p>
-<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202204192249269.jpg" alt="wx_camera_1650257489247"></p>
-<p>真的是小孩看太过幼稚，大学生看刚刚好</p>
-<h2 id="4-19"><a href="#4-19" class="headerlink" title="4.19"></a>4.19</h2><p>又到了美好的星期二，上午课间间隔40分钟</p>
-<p>去小广场荡荡秋千，看小孩子玩耍，嘿嘿嘿</p>
-<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202204212125406.jpg" alt="IMG_20220419_100855 (2)"></p>
-<p>lp说全国统一的灰色裤子，哈哈哈哈</p>
-<p>今天解封了，开心</p>
-<p>瑞幸咖啡狠狠爱住了</p>
-<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202204212125911.jpg" alt="wx_camera_1650346230426 (2)"></p>
-<p>中午吃的浏阳蒸菜哦，香得很~~~</p>
-<h2 id="4-21"><a href="#4-21" class="headerlink" title="4.21"></a>4.21</h2><p>“噩耗”来袭，呜呜呜······</p>
-<p>继续单休，五一放本来周日的假，嗐呀</p>
-<p>不过去田径场看了表演哦</p>
-<p>去晚了点，没让进，不然就能拍到舞蹈视频了</p>
-<p>其中一个小姐姐我傍晚的时候还碰到了，嗯嗯嗯~</p>
-<p>结果从围栏翻进去的，算近距离拍到了接下来的表演</p>
-<p>摇簌音乐的三首歌真的很好听</p>
-<p>一起来听听吧</p>
-<p>一–杀死石家庄的那个人</p>
-<video width="560" height="315" controls>
-    <source src="https://cdn.moran233.xyz/https://github.com/Eden-222/imgbed/releases/download/HostedFile1.0/video_20220421_200626.mp4" type="video/mp4">
-</video>
-
-
-<p>二–春风十里</p>
-<video width="560" height="315" controls>
-    <source src="https://cdn.moran233.xyz/https://github.com/Eden-222/imgbed/releases/download/HostedFile1.0/video_20220421_200900.mp4" type="video/mp4">
-</video>
-
-
-<p>三–来自曹操的林俊杰</p>
-<video width="560" height="315" controls>
-    <source src="https://cdn.moran233.xyz/https://github.com/Eden-222/imgbed/releases/download/HostedFile1.0/video_20220421_201321.mp4" type="video/mp4">
-</video>
-
-
-<p>还有大型蹦迪现场，超燃~~~</p>
-<video width="560" height="315" controls>
-    <source src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/video_20220421_202634.mp4" type="video/mp4">
-</video>
-
-
-
-<p>最后的广场舞环节由于人太多了，看不到啦</p>
-<p>准备回寝室了</p>
-<p>在孵化园那看到了之前一家门店里的狸花猫</p>
-<p>跑出来蹲在另一家店门口找里面的小猫咪，嘿嘿嘿</p>
-<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202204212234006.jpg" alt="IMG_20220421_204136 (2)"></p>
 
                 
             </div>
@@ -562,7 +509,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/04/19/%E5%B0%8F%E8%AE%B0/">http://example.com/2022/04/19/%E5%B0%8F%E8%AE%B0/</a>
+                    <a href="http://example.com/2022/06/30/%E6%9A%91%E6%9C%9F%E5%88%B7%E9%A2%982022/">http://example.com/2022/06/30/%E6%9A%91%E6%9C%9F%E5%88%B7%E9%A2%982022/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,8 +547,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%94%9F%E6%B4%BB/">
-                                    <span class="chip bg-color">生活</span>
+                                <a href="/tags/MISC/">
+                                    <span class="chip bg-color">MISC</span>
                                 </a>
                             
                         </div>
@@ -775,9 +722,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
                 <a href="/2022/06/30/%E6%9A%91%E6%9C%9F%E5%88%B7%E9%A2%982022/">
                     <div class="card-image">
@@ -795,9 +743,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -806,6 +754,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -824,13 +773,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/03/30/Misc-0/">
+                <a href="/2022/04/19/%E5%B0%8F%E8%AE%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Misc">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="小记">
                         
-                        <span class="card-title">Misc</span>
+                        <span class="card-title">小记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -841,7 +790,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-30
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-19
                             </span>
                         <span class="publish-author">
                             
@@ -854,8 +803,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%88%B7%E9%A2%98/">
-                        <span class="chip bg-color">刷题</span>
+                    <a href="/tags/%E7%94%9F%E6%B4%BB/">
+                        <span class="chip bg-color">生活</span>
                     </a>
                     
                 </div>
