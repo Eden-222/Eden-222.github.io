@@ -480,7 +480,7 @@
 <p>攻击结果如下，找到密码</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408101926775.png" alt="image-20220408101926775"></p>
 <h3 id="BUUCTF–-ACTF新生赛2020-outguess"><a href="#BUUCTF–-ACTF新生赛2020-outguess" class="headerlink" title="BUUCTF–[ACTF新生赛2020]outguess"></a>BUUCTF–[ACTF新生赛2020]outguess</h3><h5 id="知识点：outguess隐写"><a href="#知识点：outguess隐写" class="headerlink" title="知识点：outguess隐写"></a>知识点：outguess隐写</h5><p>找到一张能打开的mmm.jpg，打开属性看看，得到一串社会主义编码，解得为<strong>abc</strong></p>
-<p>通过了解outguess，在kali中安装outguess工具，用outguess命令解出<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302139915.png" alt="截图_2022-03-06_02-09-55"></p>
+<p>通过了解outguess，在kali中安装outguess工具，用outguess命令解出<img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302141621.png" alt="截图_2022-03-06_02-09-55"></p>
 <h5 id="补充：-1"><a href="#补充：-1" class="headerlink" title="补充："></a>补充：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outguess -k &#x27;密码&#x27; -r 要解密的文件 输出结果的文件名</span><br></pre></td></tr></table></figure>
 
 <h3 id="BUUCTF–九连环"><a href="#BUUCTF–九连环" class="headerlink" title="BUUCTF–九连环"></a>BUUCTF–九连环</h3><h5 id="知识点：文件分离，steghide隐写"><a href="#知识点：文件分离，steghide隐写" class="headerlink" title="知识点：文件分离，steghide隐写"></a>知识点：文件分离，steghide隐写</h5><p>得到123456cry.jpg，查看属性，010editor查看，未发现什么</p>
@@ -490,7 +490,7 @@
 <p><strong>steghide extract -sf good.jpg</strong>,要输密码，此题无密码直接敲回车</p>
 <p>得到ko.txt，打开有一串密码，放入加密的flag.txt</p>
 <h3 id="BUUCTF–-SWPU2019-我有一只马里奥"><a href="#BUUCTF–-SWPU2019-我有一只马里奥" class="headerlink" title="BUUCTF–[SWPU2019]我有一只马里奥"></a>BUUCTF–[SWPU2019]我有一只马里奥</h3><h5 id="知识点：ntfs流"><a href="#知识点：ntfs流" class="headerlink" title="知识点：ntfs流"></a>知识点：ntfs流</h5><p>得到attachment.exe，运行，出现1.txt</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147275.png" alt="image-20220306210157765"></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302141108.png" alt="image-20220306210157765"></p>
 <p>去搜索发现要下载<strong>ntfs流</strong>的软件，还看到一些wp中写打开所在目录的cmd</p>
 <p>输入notepad 1.txt:flag.txt，随即弹出flag</p>
 <h3 id="BUUCTF–谁赢了比赛？"><a href="#BUUCTF–谁赢了比赛？" class="headerlink" title="BUUCTF–谁赢了比赛？"></a>BUUCTF–谁赢了比赛？</h3><p>who_won_the_game.png图片，010editor打开</p>
@@ -504,7 +504,7 @@
 <p>发现其有加密，放入ARCHPR暴力破解，得到flag.txt</p>
 <p>打开为乱码，搜索wp，得知为词频分析，通过脚本跑，得到flag</p>
 <h3 id="BUUCTF–-WUSTCTF2020-find-me"><a href="#BUUCTF–-WUSTCTF2020-find-me" class="headerlink" title="BUUCTF–[WUSTCTF2020]find_me"></a>BUUCTF–[WUSTCTF2020]find_me</h3><h5 id="知识点：盲文编码"><a href="#知识点：盲文编码" class="headerlink" title="知识点：盲文编码"></a>知识点：盲文编码</h5><p>得到一张jpg图片，查看属性</p>
-<p>有一串奇怪的编码：**⡇⡓⡄⡖⠂⠀⠂⠀⡋⡉⠔⠀⠔⡅⡯⡖⠔⠁⠔⡞⠔⡔⠔⡯⡽⠔⡕⠔⡕⠔⡕⠔⡕⠔⡕⡍=**，去搜索，没查到，查看wp时说是盲文编码<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/image-20220408102605371.png" alt="image-20220408102605371"></p>
+<p>有一串奇怪的编码：**⡇⡓⡄⡖⠂⠀⠂⠀⡋⡉⠔⠀⠔⡅⡯⡖⠔⠁⠔⡞⠔⡔⠔⡯⡽⠔⡕⠔⡕⠔⡕⠔⡕⠔⡕⡍=**，去搜索，没查到，查看wp时说是盲文编码<img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302142369.png" alt="image-20220408102605371"></p>
 <p>解密即得flag</p>
 <h3 id="BUUCTF–黑客帝国"><a href="#BUUCTF–黑客帝国" class="headerlink" title="BUUCTF–黑客帝国"></a>BUUCTF–黑客帝国</h3><h5 id="知识点：文件头分析，archpr爆破"><a href="#知识点：文件头分析，archpr爆破" class="headerlink" title="知识点：文件头分析，archpr爆破"></a>知识点：文件头分析，archpr爆破</h5><p>7ecb86887bd03535a7f9959e934e901e.txt，放入010editor分析，526172211为rar文件头</p>
 <p>将整段编码放入16进制编辑器中，保存至rar，发现有加密</p>
@@ -512,13 +512,15 @@
 <p>看到尾部为FF D9（jpg图片文件尾），而文件头为png，所以将其改为jpg（FF D8），即可打开图片得到flag</p>
 <h3 id="BUUCTF–sqltest"><a href="#BUUCTF–sqltest" class="headerlink" title="BUUCTF–sqltest"></a>BUUCTF–sqltest</h3><h5 id="知识点：流量分析，tshark提取"><a href="#知识点：流量分析，tshark提取" class="headerlink" title="知识点：流量分析，tshark提取"></a>知识点：流量分析，tshark提取</h5><p>得到sqltest.pcapng，直接放入kali&gt;&gt;wireshark</p>
 <p>看到HTTP，追踪流，发现sql语句，将所有sql语句保存下来</p>
-<p>使用tshark提取，终端输入命令<strong>tshark -r sqltest.pcapng -Y “http.request” -T fields -e http.request.full_uri &gt; data.txt</strong></p>
+<p>使用tshark提取，终端输入命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tshark -r sqltest.pcapng -Y &quot;http.request&quot; -T fields -e http.request.full_uri &gt; data.txt</span><br></pre></td></tr></table></figure>
+
 <p> 将data.txt保存至本机，通过wp中的脚本（python还没学，原理不懂）进行提取，即得flag</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302139971.png" alt="image-20220309174247887"></p>
-<h5 id="补充：-2"><a href="#补充：-2" class="headerlink" title="补充："></a>补充：</h5><p>tshark提取<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147343.png" alt="image-20220309174050786"></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302142642.png" alt="image-20220309174247887"></p>
+<h5 id="补充：-2"><a href="#补充：-2" class="headerlink" title="补充："></a>补充：</h5><p>tshark提取<img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302142340.png" alt="image-20220309174050786"></p>
 <p>参考</p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yunqian2017/p/15124198.html">https://www.cnblogs.com/yunqian2017/p/15124198.html</a></p>
-<h3 id="BUUCTF–-HBNIS2018-低个头"><a href="#BUUCTF–-HBNIS2018-低个头" class="headerlink" title="BUUCTF–[HBNIS2018]低个头"></a>BUUCTF–[HBNIS2018]低个头</h3><h5 id="知识点：脑洞，键盘加密（低级）"><a href="#知识点：脑洞，键盘加密（低级）" class="headerlink" title="知识点：脑洞，键盘加密（低级）"></a>知识点：脑洞，键盘加密（低级）</h5><p>根据提示，查看wp，看键盘，打出txt中所有字符的形状为CTF<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147307.png" alt="image-20220310210944253"></p>
+<h3 id="BUUCTF–-HBNIS2018-低个头"><a href="#BUUCTF–-HBNIS2018-低个头" class="headerlink" title="BUUCTF–[HBNIS2018]低个头"></a>BUUCTF–[HBNIS2018]低个头</h3><h5 id="知识点：脑洞，键盘加密（低级）"><a href="#知识点：脑洞，键盘加密（低级）" class="headerlink" title="知识点：脑洞，键盘加密（低级）"></a>知识点：脑洞，键盘加密（低级）</h5><p>根据提示，查看wp，看键盘，打出txt中所有字符的形状为CTF<img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302142066.png" alt="image-20220310210944253"></p>
 <p>flag{CTF}</p>
 <h3 id="BUUCTF–我吃三明治"><a href="#BUUCTF–我吃三明治" class="headerlink" title="BUUCTF–我吃三明治"></a>BUUCTF–我吃三明治</h3><p>flag.jpg，010editor分析，应该是存在隐藏的东西的</p>
 <p>放入kali中<strong>binwalk -e flag.jpg</strong>，发现其中有两张jpg图片</p>
@@ -527,7 +529,7 @@
 <p>查看wp，在第二张图片的开头就有一串base32编码，解码即得flag</p>
 <h3 id="BUUCTF–-ACTF新生赛2020-NTFS数据流"><a href="#BUUCTF–-ACTF新生赛2020-NTFS数据流" class="headerlink" title="BUUCTF–[ACTF新生赛2020]NTFS数据流"></a>BUUCTF–[ACTF新生赛2020]NTFS数据流</h3><h5 id="知识点：NTFS数据流分析"><a href="#知识点：NTFS数据流分析" class="headerlink" title="知识点：NTFS数据流分析"></a>知识点：NTFS数据流分析</h5><p>解压下来存在两个.rar，有一个能打开，且293.txt里说存在flag</p>
 <p>搜索wp，说此类问题必须要用<strong>Winrar</strong>进行解压，才能得到ntfs流</p>
-<p>然后在解压的目录下cmd，输入<strong>notepad 293.txt:flag.txt</strong>，即得到flag<img src="https://cdn.jsdelivr.net/gh/Eden-222/imgbed/202203302147548.png" alt="image-20220311200447486"></p>
+<p>然后在解压的目录下cmd，输入<strong>notepad 293.txt:flag.txt</strong>，即得到flag<img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302142137.png" alt="image-20220311200447486"></p>
 
                 
             </div>
