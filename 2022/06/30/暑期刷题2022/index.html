@@ -5,9 +5,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="暑期刷题2022, MotorcycleBoy">
-    <meta name="description" content="2022DASCTF MAY 出题人挑战赛Misc|Workingrootme说明：ubuntu 123456请使用ssh连接hint：flag位置在/root/flag.txt
-ssh连接
-123456ssh -p 26245 ubunt">
+    <meta name="description" content="盲水印附件为一张图片还有txt
+txt里面为坐标点
+将坐标点转换成RGB
+再利用RGB转图片
+与原来的图片bwm
+1python3 bwmforpy3.py decode x.png y.png flag.png
+
+
+
+可在HTTP导出1.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -469,7 +476,326 @@ ssh连接
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="2022DASCTF-MAY-出题人挑战赛"><a href="#2022DASCTF-MAY-出题人挑战赛" class="headerlink" title="2022DASCTF MAY 出题人挑战赛"></a>2022DASCTF MAY 出题人挑战赛</h2><h3 id="Misc-Working"><a href="#Misc-Working" class="headerlink" title="Misc|Working"></a>Misc|Working</h3><h4 id="rootme"><a href="#rootme" class="headerlink" title="rootme"></a>rootme</h4><h5 id="说明：ubuntu-123456请使用ssh连接"><a href="#说明：ubuntu-123456请使用ssh连接" class="headerlink" title="说明：ubuntu 123456请使用ssh连接"></a>说明：ubuntu 123456请使用ssh连接</h5><p>hint：flag位置在/root/flag.txt</p>
+                <h3 id="盲水印"><a href="#盲水印" class="headerlink" title="盲水印"></a>盲水印</h3><p>附件为一张图片还有txt</p>
+<p>txt里面为坐标点</p>
+<p>将坐标点转换成RGB</p>
+<p>再利用RGB转图片</p>
+<p>与原来的图片bwm</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 bwmforpy3.py decode x.png y.png flag.png</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031514069.png" alt="image-20220703151409907"></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207090910947.png" alt="image-20220709091028824"></p>
+<p>可在HTTP导出1.rar（需要密码）</p>
+<p>将以上的url编码解密出来</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207091209571.png" alt="image-20220709120923507"></p>
+<p>关键函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$p</span>=base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;yee092cda97a62&quot;</span>],<span class="number">2</span>));</span><br><span class="line"><span class="variable">$s</span>=base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;q8fb9d4c082c11&quot;</span>],<span class="number">2</span>));</span><br><span class="line"><span class="variable">$envstr</span>=@base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;p48a6d55fac1b1&quot;</span>],<span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+
+<p>套娃读取，得到加密命令</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207091208757.png" alt="image-20220709120833699"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">密码</span><br><span class="line">SecretsPasswrds</span><br></pre></td></tr></table></figure>
+
+<p>解开1.txt</p>
+<p>了解用mimikatz获取hash值</p>
+<p>Hash NTLM</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207091212312.png" alt="image-20220709121253204"></p>
+<h3 id="Misc-Working"><a href="#Misc-Working" class="headerlink" title="Misc|Working"></a>Misc|Working</h3><h4 id="PickUpThatCan-log"><a href="#PickUpThatCan-log" class="headerlink" title="PickUpThatCan.log"></a>PickUpThatCan.log</h4><p>日志文件</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207091521202.png" alt="image-20220709152138145"></p>
+<p>将003所有的找出来，去解密</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207091523687.png" alt="image-20220709152331646"></p>
+<p>猜测只需最后一个003对应的hex</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">003  666C61677B</span><br><span class="line">004  6C6F5F776F</span><br><span class="line">005  2121217D</span><br></pre></td></tr></table></figure>
+
+<p>解码网址<a target="_blank" rel="noopener" href="https://tool.lu/hexstr/%EF%BC%88%E5%85%B6%E4%BB%96%E7%9A%84%E5%A5%BD%E5%83%8F%E4%B8%8D%E5%A4%AA%E8%A1%8C%EF%BC%89">https://tool.lu/hexstr/（其他的好像不太行）</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;lo_wo!!!&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-QCTF2018-X-man-Keyword"><a href="#BUUCTF–-QCTF2018-X-man-Keyword" class="headerlink" title="BUUCTF–[QCTF2018]X-man-Keyword"></a>BUUCTF–[QCTF2018]X-man-Keyword</h3><h4 id="知识点：lsb-py，Nihilist加密"><a href="#知识点：lsb-py，Nihilist加密" class="headerlink" title="知识点：lsb.py，Nihilist加密"></a>知识点：lsb.py，Nihilist加密</h4><p>attachment.png</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301119240.png" alt="image-20220630111925184"></p>
+<p>想到lsb隐写</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 lsb.py extract attachment.png 9.txt lovekfc</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301120060.png" alt="image-20220630112030015"></p>
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PVSF&#123;vVckHejqBOVX9C1c13GFfkHJrjIQeMwf&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从26个英文字母里把 “lovekfc”提出来放到前面做密钥</p>
+<p>Nihilist加密</p>
+<p>附上脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">ciphertext = <span class="string">&#x27;PVSF&#123;vVckHejqBOVX9C1c13GFfkHJrjIQeMwf&#125;&#x27;</span></span><br><span class="line">secretkey = <span class="string">&#x27;lovekfcabdghijmnpqrstuwxyz&#x27;</span></span><br><span class="line">plaintext = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> letter <span class="keyword">in</span> ciphertext:</span><br><span class="line">    <span class="keyword">if</span> letter <span class="keyword">in</span> string.ascii_lowercase:</span><br><span class="line">        index = secretkey.lower().index(letter)</span><br><span class="line">        plaintext += string.ascii_lowercase[index]</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> letter <span class="keyword">in</span> string.ascii_uppercase:</span><br><span class="line">        index = secretkey.upper().index(letter)</span><br><span class="line">        plaintext += string.ascii_uppercase[index]</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    plaintext += letter</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(plaintext)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QCTF&#123;cCgeLdnrIBCX9G1g13KFfeLNsnMRdOwf&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-HDCTF2019-信号分析"><a href="#BUUCTF–-HDCTF2019-信号分析" class="headerlink" title="BUUCTF–[HDCTF2019]信号分析"></a>BUUCTF–[HDCTF2019]信号分析</h3><p>buu少了提示 Hackcube</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">一长一短：F</span><br><span class="line">两短：0</span><br><span class="line">两长：1</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301149936.png" alt="image-20220630114912884"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">0101010101010101000000110</span><br><span class="line">PT2242信号：前面4bit表示同步码，中间的20bit表示地址码，后面的4bit表示功能码，最后一位是停止码</span><br><span class="line">0101010101010101   000000  11  0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;FFFFFFFF0001&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-INSHack2017-hiding-in-plain-sight"><a href="#BUUCTF–-INSHack2017-hiding-in-plain-sight" class="headerlink" title="BUUCTF–[INSHack2017]hiding-in-plain-sight"></a>BUUCTF–[INSHack2017]hiding-in-plain-sight</h3><p>chall.png和description.md</p>
+<p>binwalk分析png发现有jpg图片</p>
+<p>foremost提取出来（binwalk -e这里分离不出来）</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301204381.png" alt="image-20220630120409300"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;l337_h4xx0r5_c0mmun1c473_w17h_PNGs&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-2022红包题-虎年大吉"><a href="#BUUCTF–-2022红包题-虎年大吉" class="headerlink" title="BUUCTF–[2022红包题]虎年大吉"></a>BUUCTF–[2022红包题]虎年大吉</h3><p>010editor查看png图片</p>
+<p>末尾有一串加密编码</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301652787.png" alt="image-20220630165201733"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6&lt;.<span class="comment">#Q&lt;(?#$XllOOjeSg9Y.!JYYiWF&amp;jhIkW\W@qGCggt&#x27;1-%&#x27;K2E&lt;cTI/</span></span><br></pre></td></tr></table></figure>
+
+<p>wp说用ciphey爆破，我之前装过，后面用不了了</p>
+<p>base85解密出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BUUCTF恭祝大家新年快乐 flag&#123;29186995&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-羊城杯-2020-逃离东南亚"><a href="#BUUCTF–-羊城杯-2020-逃离东南亚" class="headerlink" title="BUUCTF–[羊城杯 2020]逃离东南亚"></a>BUUCTF–[羊城杯 2020]逃离东南亚</h3><h4 id="知识点：图片宽高，Silenteye隐写，tab和空格的数据隐写"><a href="#知识点：图片宽高，Silenteye隐写，tab和空格的数据隐写" class="headerlink" title="知识点：图片宽高，Silenteye隐写，tab和空格的数据隐写"></a>知识点：图片宽高，Silenteye隐写，tab和空格的数据隐写</h4><p>日记一</p>
+<p>将img.png放入010editor分析</p>
+<p>爆破下宽高</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301717141.png" alt="image-20220630171727085"></p>
+<p>修改得到</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301716891.png" alt="image-20220630171613807"></p>
+<p>日记二</p>
+<p>需要解压密码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wdnmd</span><br></pre></td></tr></table></figure>
+
+<p>这里的文本其实是一个brainfuck的编程语言的隐写，在前面加上++++++即可输出内容。（brainfuck加密后应该是++++++++[开头的，与密文不符，需要在开头加上++++++++）</p>
+<p>base64解密出来一个可执行文件</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301736584.png" alt="image-20220630173631491"></p>
+<p>打架.wav用silenteye解密得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This1sThe3rdZIPpwd</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206301730156.png" alt="image-20220630173030088"></p>
+<p>日记三</p>
+<p>解开日记三压缩包</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302112464.png" alt="image-20220630211210413"></p>
+<p>source_code下很多包和文件</p>
+<p>看文本的提示就是里面有一些隐写具体是什么，得靠大家去猜想，这里其实是tab和空格的数据隐写。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">因为涉及的文件很多我们不可能去一个一个文件寻找隐写的信息，需要使用脚本来判断隐写信息所在的文件位置，再使用脚本提取出来。</span><br><span class="line">既然这里是使用的tab和空格来进行隐写，为了避免提取错误我们使用 \t \t来进行隐藏数据的提取。</span><br></pre></td></tr></table></figure>
+
+<p>附上脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> binary_repr</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_file_lists</span>(<span class="params">dir_path</span>):</span></span><br><span class="line">    _file_list = os.listdir(dir_path)</span><br><span class="line">    file_list = []</span><br><span class="line">    <span class="keyword">for</span> file_str <span class="keyword">in</span> _file_list:</span><br><span class="line">        new_dir_path = dir_path+<span class="string">&#x27;\\&#x27;</span>+file_str</span><br><span class="line">        <span class="keyword">if</span>(os.path.isdir(new_dir_path)):</span><br><span class="line">            file_list.extend(get_file_lists(new_dir_path))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            file_list.append(new_dir_path)</span><br><span class="line">    <span class="keyword">return</span> file_list</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">important_file</span>(<span class="params">path</span>):</span></span><br><span class="line">    FILE  =[]</span><br><span class="line">    fiel_list = get_file_lists(path)</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> fiel_list:</span><br><span class="line">        f =<span class="built_in">open</span>(file,<span class="string">&quot;r&quot;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            data = f.read()</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&quot; \t \t&quot;</span> <span class="keyword">in</span> data:</span><br><span class="line">                <span class="built_in">print</span>(file)</span><br><span class="line">                FILE.append(file)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> FILE</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_flag</span>(<span class="params">f_list</span>):</span></span><br><span class="line">    result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> f_list:</span><br><span class="line">        <span class="keyword">for</span> data <span class="keyword">in</span> <span class="built_in">open</span>(f, <span class="string">&#x27;r&#x27;</span>).readlines():</span><br><span class="line">            data = data[:-<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">if</span> <span class="string">&#x27;&#125;&#x27;</span> <span class="keyword">in</span> data:</span><br><span class="line">                data = data.split(<span class="string">&#x27;&#125;&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">                <span class="keyword">if</span> <span class="string">&#x27;\t&#x27;</span> <span class="keyword">in</span> data:</span><br><span class="line">                    data1 = data[::].replace(<span class="string">&#x27;\t&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                    data1 = data1.replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> data1:</span><br><span class="line">                        <span class="built_in">print</span>([data])</span><br><span class="line">                        result += data</span><br><span class="line"></span><br><span class="line">    result = result.replace(<span class="string">&#x27;\t&#x27;</span>, <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    result = result.replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line">    data = <span class="built_in">hex</span>(<span class="built_in">int</span>(result,<span class="number">2</span>))[<span class="number">2</span>:]</span><br><span class="line">    data.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    str_bin = binascii.unhexlify(data)</span><br><span class="line">    <span class="built_in">print</span>(str_bin.decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    path = <span class="string">&quot;绝对路径\source_code&quot;</span></span><br><span class="line">    FILE = important_file(path)</span><br><span class="line">    get_flag(FILE)</span><br></pre></td></tr></table></figure>
+
+<p>跑出</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202206302109457.png" alt="image-20220630210928371"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GWCTF&#123;code_steganography_1s_funny!&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_49422880/article/details/124561838">https://blog.csdn.net/qq_49422880/article/details/124561838</a></p>
+<h3 id="BUUCTF–-MRCTF2020-寻找xxx"><a href="#BUUCTF–-MRCTF2020-寻找xxx" class="headerlink" title="BUUCTF–[MRCTF2020]寻找xxx"></a>BUUCTF–[MRCTF2020]寻找xxx</h3><h4 id="知识点：拨号频谱分析，dtmf2num"><a href="#知识点：拨号频谱分析，dtmf2num" class="headerlink" title="知识点：拨号频谱分析，dtmf2num"></a>知识点：拨号频谱分析，dtmf2num</h4><p>密码.wav</p>
+<p>终端命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\dtmf2num.exe 密码.wav</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207021658111.png" alt="image-20220702165833955"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">18684221609</span><br></pre></td></tr></table></figure>
+
+<p>将电话号码发送至天璇公众号得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MRCTF&#123;Oh!!!!!_Y0u_f1nd_my_secret&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-INSHack2017-remote-multimedia-controller"><a href="#BUUCTF–-INSHack2017-remote-multimedia-controller" class="headerlink" title="BUUCTF–[INSHack2017]remote-multimedia-controller"></a>BUUCTF–[INSHack2017]remote-multimedia-controller</h3><p>pcap文件</p>
+<p>wireshark打开，追踪TCP流</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207021746983.png" alt="image-20220702174658900"></p>
+<p>发现base64加密，wp说是套娃</p>
+<p>直接上脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&#x27;test1.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    f = base64.b64decode(f)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">b&#x27;&#123;&#x27;</span> <span class="keyword">in</span> f:</span><br><span class="line">        <span class="built_in">print</span>(f)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+<p>得出flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;TCP_s0ck3t_4n4lys1s_c4n_b3_fun!&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-INSHack2017-not-so-deep"><a href="#BUUCTF–-INSHack2017-not-so-deep" class="headerlink" title="BUUCTF–[INSHack2017] (not)so deep"></a>BUUCTF–[INSHack2017] (not)so deep</h3><p>Audacity查看final_flag.wav</p>
+<p>得到前半部分</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207022159619.png" alt="image-20220702215956501"></p>
+<p>后半部分要用到Deepsound工具</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207022203648.png" alt="image-20220702220351563"></p>
+<p>尝试对获取<code>final_flag.wav</code>密码的<strong>hash值</strong>然后使用<code>john</code>进行爆破</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207022202376.png" alt="image-20220702220257239"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">azerty</span><br></pre></td></tr></table></figure>
+
+<p>解开导出flag2.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;Aud1o_st3G4n0_1s_4lwayS_Th3_S4me&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mochu7777777/article/details/110065736">https://blog.csdn.net/mochu7777777/article/details/110065736</a></p>
+<h3 id="BUUCTF–-NPUCTF2020-碰上彩虹，吃定彩虹！"><a href="#BUUCTF–-NPUCTF2020-碰上彩虹，吃定彩虹！" class="headerlink" title="BUUCTF–[NPUCTF2020]碰上彩虹，吃定彩虹！"></a>BUUCTF–[NPUCTF2020]碰上彩虹，吃定彩虹！</h3><p>maybehint.txt用sublime打开</p>
+<p>明显看出零宽字符隐写</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031611762.png" alt="image-20220703161105689"></p>
+<p>零宽字符解密，参数要调一下</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031611875.png" alt="image-20220703161159821"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">do u know NTFS?</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031609003.png" alt="image-20220703160913937"></p>
+<p>NTFS隐藏数据流(需要winrar解压)</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031613758.png" alt="image-20220703161350688"></p>
+<p>导出out.txt</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">=wwZlZ=8W=cndwljcdcG8wdj8W8Z8dZllGjZc=8lWjnlWd8WwZ5j=l8ccWZcZGjd5ZwZ5WZ8d=Zcwjwl5Gnn=WdwcwlnWd5lGnZWlnnwdnjnw8ndnc58d5cndl=njZl=WddjwWWwZllj5c5jGwZnZ5W=cZljdwd8c=85ndGGljcl5ccwd=W=l8w=5lwWn8WnwnWlGZwdcnGGl5G=8W==cnnWZnWjZ=wWcGwZcWc8ncWW=5jnWwcZl8W=8cdwWldlnwW5ddwlnlwncWlcwGZddj5djZWc5jcWdn5jdjwnj85GWGjnjwGd=jZGj5j==jwjlw8dlwWj5Wjn5n8dwwdjZlc5lZwdWldZlnGwl85cWnjd=WcWlwj8WGdlGncnZWGGd5ZncW5d55nW5wl=Wj8jGWnWj8jwZ=ZwWZ88nWG5nn5WlWnGdWw5Zn8jdl=nGcnll8WncZjnGn=dlwn5W8wlWjlnl5ccnGWGnnnc58WnjlGnG55Zwdn5cZdjdZZ5WljG5G5wcldd=Wlc8Z=8nGj=jWd8w8Wd=w8nccc8wZdjcnGdljZnnj5ww8885=lcWW8W8j5dG8jZZwG55GjnwZ=W5Z8G5ZlGc5ZZncZ5cd8j85GW5nj=WWncn55Gj5nj5nwnW58jG8GcnjZdWcl8wj8n=cj=8l8cn5jjcjn8lldn=Gjw8=cjcdWWjGddZljdjdZnG8djnZccZldlWllw5ZZ8wj5Gn==5w8Z=j55n=ZZ5wdww8lndwd8Wlj8WGjnl=nncZ=W8ZZWZnjjlwWGZZlZc5c==d8Zl855wZn=W=w8wWjZ85cGc==5Z8ccjdw5GnZWnGjcdGGnZ5wwwWGG5d=W5ldjwGZZdZwdG5cGGnZGlGc=W5ccWZ8=cGljdGcdld=8cj8jwn=lj88ZZ5jn5lcZ=Gdw=Zl58WZZl5ccwccwG5d5w8Z5wllj5ddnn=5=w8588WwGj=l5G55dWG8cl=GcjWwlwG=lWWnZ=dZG85Gcjc5=wnw=j==Gndnddjwn5c=c5W5wwdWlG5nWZwnGw8=lcWldcwnG5Wcjj=cWlGZc8Gn58ZWjZ85ljlncZj5cc=dZWGjd=d8ncZ8www55=cw=GWZn5ZZlnWld=cWcnclWlZG5djGW=cl8=ZG8cZwwc8wl=88W5ZwZ=jwZGGlcWcWnZZ5Zj5w5ZdZclZZWnccGw==cG8W8ZWlc8wcZ555Z85ljWG5jZ=8=wllWjWjlZc5lG8cwWlnjlGlW=l5=n=lGwnjGGjGdwj85ddW5ZwZ=ddjWldj=cjljjGwndZjWWZGcdWcZW5cdldj8WZjGljlWncZ5=8jnZWjl8wjZG5Zwlcl5dd</span><br></pre></td></tr></table></figure>
+
+<p>字频统计</p>
+<p>在线网址<a target="_blank" rel="noopener" href="https://www.67tool.com/text/count-character-frequency">https://www.67tool.com/text/count-character-frequency</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZW5jcnlwdG8=</span><br></pre></td></tr></table></figure>
+
+<p>base64解密得到</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031621190.png" alt="image-20220703162138133"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">encrypto  一个加解密工具</span><br></pre></td></tr></table></figure>
+
+<p>lookatme.txt</p>
+<p>摩斯解码得到autokey</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031629828.png" alt="image-20220703162929748"></p>
+<p>break_autokey.py运行出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iamthepasswd</span><br></pre></td></tr></table></figure>
+
+<p>在secret加上后缀“crypto”，否则为加密</p>
+<p>会发现以上密码是解不开的</p>
+<p>需要用010editor打开，删除蓝底字符才能解开</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031646666.png" alt="image-20220703164635607"></p>
+<p>得到彩虹.png</p>
+<p>binwalk分析存在隐藏zip，分离出来</p>
+<p>需要密码</p>
+<p>提取图片的六种黄色的十六进制数，取后两位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">704073735764</span><br></pre></td></tr></table></figure>
+
+<p>转ascii</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p@ssWd</span><br></pre></td></tr></table></figure>
+
+<p>解开压缩包，得到docx</p>
+<p>一串小写编码中混有几个大写字母</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALPHUCK</span><br></pre></td></tr></table></figure>
+
+<p>将大写字母去除</p>
+<p>ALPHUCK在线解密<a target="_blank" rel="noopener" href="https://www.dcode.fr/alphuck-language">https://www.dcode.fr/alphuck-language</a></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207031702620.png" alt="image-20220703170231552"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;1t&#x27;s_v3ry_De1iCi0us~!&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-INSHack2017-10-cl0v3rf13ld-lane-signal"><a href="#BUUCTF–-INSHack2017-10-cl0v3rf13ld-lane-signal" class="headerlink" title="BUUCTF–[INSHack2017]10-cl0v3rf13ld-lane-signal"></a>BUUCTF–[INSHack2017]10-cl0v3rf13ld-lane-signal</h3><p>find_me.unk</p>
+<p>010editor查看，发现是jpg</p>
+<p>改后缀jpg</p>
+<p>binwalk分析</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111738944.png" alt="image-20220711173821858"></p>
+<p>foremost分离png</p>
+<p>发现一张png图片，左下角存在摩斯密码</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111655021.png" alt="image-20220711165521929"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解密出来为</span><br><span class="line">helpme</span><br></pre></td></tr></table></figure>
+
+<p>010editor打开find_me.png</p>
+<p>存在oggs</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111657770.png" alt="image-20220711165754706"></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111658632.png" alt="image-20220711165844573"></p>
+<p>将其另存出来，用audacity打开，得到摩斯密码</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111654324.png" alt="image-20220711165356187"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.. -. ... .- -.--. -- ----- .-. ..... ...-- ..--.- .-- .---- .-.. .-.. ..--.- -. ...-- ...- ...-- .-. ..--.- ....- --. ...-- -.-.-- -.--.-</span><br><span class="line">INSA(M0R53_W1LL_N3V3R_4G3!)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;M0R53_W1LL_N3V3R_4G3!&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–行为艺术"><a href="#BUUCTF–行为艺术" class="headerlink" title="BUUCTF–行为艺术"></a>BUUCTF–行为艺术</h3><p>png图片和hint.txt</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111745525.png" alt="image-20220711174514428"></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111745050.png" alt="image-20220711174546985"></p>
+<p>图片中的数据为zip压缩包的hex，将其写入保存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">504B0304140000000800DB93C55086A3</span><br><span class="line">9007D8000000DF01000008000000666C</span><br><span class="line">61672E74787475504B0E823010DD9370</span><br><span class="line">8771DDCCB0270D5BBD0371815A9148AC</span><br><span class="line">6951C2ED9D271F89C62E2693D7F76BB7</span><br><span class="line">DE9FC80D2E6E68E782A326D2E01F81CE</span><br><span class="line">6D55E76972E9BA7BCCB3ACEF7B89F7B6</span><br><span class="line">E90EA16A6EE2439D45179ECDD1C5CCFB</span><br><span class="line">6B9AA489C1218C92B898779D765FCCBB</span><br><span class="line">58CC920B6662C5F91749931132258F32</span><br><span class="line">BBA7C288C5AE103133106608409DAC41</span><br><span class="line">9F77241A3412907814AB7A922106B8DE</span><br><span class="line">D0D25AEC8A634929025C46A33FE5A1D3</span><br><span class="line">167A100323B1ABEE4A7A0708413A19E1</span><br><span class="line">7718165F5D3E73D577798E36D5144B66</span><br><span class="line">315AAE315078F5E51A29246AF402504B</span><br><span class="line">01021F00140009000800DB93C55086A3</span><br><span class="line">9007D8000000DF010000080024000000</span><br><span class="line">000000002000000000000000666C6167</span><br><span class="line">2E7478740A0020000000000001001800</span><br><span class="line">4A0A9A64243BD601F9D8AB39243BD601</span><br><span class="line">2D00CA13223BD601504B050600000000</span><br><span class="line">010001005A000000FE00000000000000</span><br></pre></td></tr></table></figure>
+
+<p>需要密码打开，发现是伪加密</p>
+<p>将09改为00</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207111756838.png" alt="image-20220711175603761"></p>
+<p>去网址进行解密</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WMCTF&#123;wai_bi_baaaa_bo!2333~~~&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;wai_bi_baaaa_bo!2333~~~&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-watevrCTF-2019-Unspaellablle"><a href="#BUUCTF–-watevrCTF-2019-Unspaellablle" class="headerlink" title="BUUCTF–[watevrCTF 2019]Unspaellablle"></a>BUUCTF–[watevrCTF 2019]Unspaellablle</h3><p>attachment.txt</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112153438.png" alt="image-20220711215329372"></p>
+<p>去搜索是一个剧本</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112154571.png" alt="image-20220711215408483"></p>
+<p>将原文复制下来，放入pycharm进行对比</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112154513.png" alt="image-20220711215458430"></p>
+<p>将隐藏的拼凑起来就是flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">watevr&#123;icantpeel_tiny.cc/2qsdez&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;icantpeel_tiny.cc/2qsdez&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="BUUCTF–-羊城杯-2020-signin"><a href="#BUUCTF–-羊城杯-2020-signin" class="headerlink" title="BUUCTF–[羊城杯 2020]signin"></a>BUUCTF–[羊城杯 2020]signin</h3><h5 id="hint"><a href="#hint" class="headerlink" title="hint:"></a>hint:<img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207131110988.png" alt="image-20220713111019931"></h5><p>signin.txt</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207131109192.png" alt="image-20220713110931078"></p>
+<p>从别的师傅那找到加密的pdf</p>
+<p><strong>Toy Cipher：</strong><a target="_blank" rel="noopener" href="https://eprint.iacr.org/2020/301.pdf">https://eprint.iacr.org/2020/301.pdf</a></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207131115785.png" alt="image-20220713111522723"></p>
+<p>将明文中字符四个一组对照转换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cipherdic = &#123;<span class="string">&#x27;M&#x27;</span>:<span class="string">&#x27;ACEG&#x27;</span>,<span class="string">&#x27;R&#x27;</span>:<span class="string">&#x27;ADEG&#x27;</span>,<span class="string">&#x27;K&#x27;</span>:<span class="string">&#x27;BCEG&#x27;</span>,<span class="string">&#x27;S&#x27;</span>:<span class="string">&#x27;BDEG&#x27;</span>,<span class="string">&#x27;A&#x27;</span>:<span class="string">&#x27;ACEH&#x27;</span>,<span class="string">&#x27;B&#x27;</span>:<span class="string">&#x27;ADEH&#x27;</span>,<span class="string">&#x27;L&#x27;</span>:<span class="string">&#x27;BCEH&#x27;</span>,<span class="string">&#x27;U&#x27;</span>:<span class="string">&#x27;BDEH&#x27;</span>,<span class="string">&#x27;D&#x27;</span>:<span class="string">&#x27;ACEI&#x27;</span>,<span class="string">&#x27;C&#x27;</span>:<span class="string">&#x27;ADEI&#x27;</span>,<span class="string">&#x27;N&#x27;</span>:<span class="string">&#x27;BCEI&#x27;</span>,<span class="string">&#x27;V&#x27;</span>:<span class="string">&#x27;BDEI&#x27;</span>,<span class="string">&#x27;H&#x27;</span>:<span class="string">&#x27;ACFG&#x27;</span>,<span class="string">&#x27;F&#x27;</span>:<span class="string">&#x27;ADFG&#x27;</span>,<span class="string">&#x27;O&#x27;</span>:<span class="string">&#x27;BCFG&#x27;</span>,<span class="string">&#x27;W&#x27;</span>:<span class="string">&#x27;BDFG&#x27;</span>,<span class="string">&#x27;T&#x27;</span>:<span class="string">&#x27;ACFH&#x27;</span>,<span class="string">&#x27;G&#x27;</span>:<span class="string">&#x27;ADFH&#x27;</span>,<span class="string">&#x27;P&#x27;</span>:<span class="string">&#x27;BCFH&#x27;</span>,<span class="string">&#x27;X&#x27;</span>:<span class="string">&#x27;BDFH&#x27;</span>,<span class="string">&#x27;E&#x27;</span>:<span class="string">&#x27;ACFI&#x27;</span>,<span class="string">&#x27;I&#x27;</span>:<span class="string">&#x27;ADFI&#x27;</span>,<span class="string">&#x27;Q&#x27;</span>:<span class="string">&#x27;BCFI&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>:<span class="string">&#x27;BDFI&#x27;</span>&#125;</span><br><span class="line">ciphertext = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;signin.txt&#x27;</span>,<span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f = f.read()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="built_in">len</span>(f),<span class="number">4</span>):</span><br><span class="line">        block = f[i:i+<span class="number">4</span>]</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> cipherdic:</span><br><span class="line">            <span class="keyword">if</span> block == cipherdic[j]:</span><br><span class="line">                ciphertext += j</span><br><span class="line">                <span class="comment">#print(&#x27;&#123;&#125;: &#123;&#125;&#x27;.format(block,j))</span></span><br><span class="line"><span class="built_in">print</span>(ciphertext)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>得到<strong>LDVUUCMEXMLQSSFUSXKEOCCG</strong></p>
+<p>根据提示，将加密表倒序排列，再对比一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ciphertext = <span class="string">&#x27;LDVUUCMEXMLQSSFUSXKEOCCG&#x27;</span></span><br><span class="line"></span><br><span class="line">original_list = [<span class="string">&#x27;M&#x27;</span>,<span class="string">&#x27;R&#x27;</span>,<span class="string">&#x27;K&#x27;</span>,<span class="string">&#x27;S&#x27;</span>,<span class="string">&#x27;A&#x27;</span>,<span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;L&#x27;</span>,<span class="string">&#x27;U&#x27;</span>,<span class="string">&#x27;D&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;N&#x27;</span>,<span class="string">&#x27;V&#x27;</span>,<span class="string">&#x27;H&#x27;</span>,<span class="string">&#x27;F&#x27;</span>,<span class="string">&#x27;O&#x27;</span>,<span class="string">&#x27;W&#x27;</span>,<span class="string">&#x27;T&#x27;</span>,<span class="string">&#x27;G&#x27;</span>,<span class="string">&#x27;P&#x27;</span>,<span class="string">&#x27;X&#x27;</span>,<span class="string">&#x27;E&#x27;</span>,<span class="string">&#x27;I&#x27;</span>,<span class="string">&#x27;Q&#x27;</span>,<span class="string">&#x27;Y&#x27;</span>]</span><br><span class="line">reversed_list = original_list[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> ciphertext:</span><br><span class="line">    <span class="keyword">for</span> olist <span class="keyword">in</span> original_list:</span><br><span class="line">        <span class="keyword">if</span> char == olist:</span><br><span class="line">            oindex = original_list.index(olist)</span><br><span class="line">            flag += reversed_list[oindex]</span><br><span class="line"></span><br><span class="line">flag = flag.replace(<span class="string">&#x27;GWHT&#x27;</span>,<span class="string">&#x27;GWHT&#123;&#x27;</span>)</span><br><span class="line">flag = flag.replace(<span class="string">&#x27;COOL&#x27;</span>,<span class="string">&#x27;COOL&#125;&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>得到</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GWHT&#123;TOYSAYGREENTEAISCOOL&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参考</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mochu7777777/article/details/116056136">https://blog.csdn.net/mochu7777777/article/details/116056136</a></p>
+<h3 id="BUUCTF–-INSHack2019-Passthru"><a href="#BUUCTF–-INSHack2019-Passthru" class="headerlink" title="BUUCTF–[INSHack2019]Passthru"></a>BUUCTF–[INSHack2019]Passthru</h3><p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207131700287.png" alt="image-20220713170031230"></p>
+<p>首先使用sslkey解密内容，编辑&gt;首选项&gt;protocols&gt;TLS</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207131702484.png" alt="image-20220713170248410"></p>
+<p>过滤出<code>GET</code>请求的包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.request.method==GET</span><br></pre></td></tr></table></figure>
+
+<p>这些包中有参数名为kcahsni，而比赛为inshack</p>
+<p>取出这些包的kcahsni的值</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207131705361.png" alt="image-20220713170506255"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tshark提取</span><br><span class="line">来自大佬</span><br><span class="line">tshark -r capture.pcap -o <span class="string">&#x27;ssl.keylog_file:sslkey.log&#x27;</span> -Y <span class="string">&#x27;http contains &quot;GET /searchbyimage&quot;&#x27;</span> -T fields -e http.request.uri.query.parameter &gt; outdata.txt</span><br></pre></td></tr></table></figure>
+
+<p>脚本处理下，最后结果还需要逆序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Written by: mochu7</span></span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> unquote</span><br><span class="line"></span><br><span class="line">flag=<span class="string">b&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;./outdata.txt&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">        line = unquote(line)</span><br><span class="line">        hexdata = line[line.find(<span class="string">&#x27;kcahsni=&#x27;</span>)+<span class="number">8</span>:line.find(<span class="string">&#x27;,&#x27;</span>)]</span><br><span class="line">        hexstring = binascii.unhexlify(hexdata)</span><br><span class="line">        flag += hexstring</span><br><span class="line">    <span class="built_in">print</span>(flag[::-<span class="number">1</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>得出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;b274dddb2c7707ebe430dadcf1245c246713502d6e9579f00acd10a83f3da95e&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="蓝帽杯2022"><a href="#蓝帽杯2022" class="headerlink" title="蓝帽杯2022"></a>蓝帽杯2022</h2><h3 id="Misc-Woking"><a href="#Misc-Woking" class="headerlink" title="Misc|Woking"></a>Misc|Woking</h3><h4 id="domainhacker"><a href="#domainhacker" class="headerlink" title="domainhacker"></a>domainhacker</h4><p>domainhacker.pcapng</p>
+<p>http可导出一个1.rar</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112338014.png" alt="image-20220711233843970"></p>
+<p>在tcp流13发现rar</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112323833.png" alt="image-20220711232344789"></p>
+<p>将上面的url编码解密</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关键函数</span><br><span class="line">try&#123;<span class="variable">$p</span>=base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;yee092cda97a62&quot;</span>],2));</span><br><span class="line"><span class="variable">$s</span>=base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;q8fb9d4c082c11&quot;</span>],2));</span><br><span class="line"><span class="variable">$envstr</span>=@base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;p48a6d55fac1b1&quot;</span>],2));</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112331392.png" alt="image-20220711233152348"></p>
+<p>要将前两位删除从第三位开始</p>
+<p>base64拼凑解密</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;p48a6d55fac1b1=Tw&amp;q8fb9d4c082c11=YNY2QgL2QgImM6XFxXaW5kb3dzXFxUZW1wIiZyYXIuZXhlIGEgLVBTZWNyZXRzUGFzc3cwcmRzIDEucmFyIDEudHh0JmVjaG8gZWZhOTIzYmE1MDQmY2QmZWNobyAxYTRiZTg4MTVlZjg=&amp;yee092cda97a62=6iY21k</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112332550.png" alt="image-20220711233245513"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">密码</span><br><span class="line">SecretsPassw0rds</span><br></pre></td></tr></table></figure>
+
+<p>解开压缩包，打开之后发现是mimikatz解析的lsass</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112337765.png" alt="image-20220711233700706"></p>
+<p>提交NTLM值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;416f89c3a5deb1d398a1aifce93862a7&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Misc-Woking-1"><a href="#Misc-Woking-1" class="headerlink" title="Misc|Woking"></a>Misc|Woking</h3><h4 id="domainhacker2"><a href="#domainhacker2" class="headerlink" title="domainhacker2"></a>domainhacker2</h4><p>和上一题一样的套路</p>
+<p>在tcp流27时发现ntds.rar，将上面的url解码</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112310081.png" alt="image-20220711231042015"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">关键函数</span><br><span class="line">try&#123;<span class="variable">$p</span>=base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;i00fdbe370f732&quot;</span>],2));<span class="variable">$s</span>=base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;eaf06745bcdc2e&quot;</span>],2));<span class="variable">$envstr</span>=@base64_decode(substr(<span class="variable">$_POST</span>[<span class="string">&quot;y2ad6c8051181b&quot;</span>],2));</span><br></pre></td></tr></table></figure>
+
+<p>base64拼凑解密</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;eaf06745bcdc2e=suY2QgL2QgImM6XFxXaW5kb3dzXFxUZW1wIiZyYXIuZXhlIGEgLVBGYWtlUGFzc3dvcmQxMjMkIG50ZHMucmFyIG5ldyZlY2hvIDFkMzYzMiZjZCZlY2hvIDc4YmM0NjJhYg==&amp;i00fdbe370f732=LcY21k&amp;y2ad6c8051181b=Gh</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112316839.png" alt="image-20220711231603781"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">密码</span><br><span class="line">FakePassword123$</span><br></pre></td></tr></table></figure>
+
+<p>解开ntds.rar</p>
+<p>想着怎么解析ntds.dit</p>
+<p><strong>ntdsdumpEx</strong>(这个貌似不太行，出来的是错的)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ntdsdumpex.exe &lt;-d ntds.dit&gt; &lt;-k HEX-SYS-KEY | -s system.hiv |-r&gt; [-o out.txt] [-h] [-m] [-p] [-u]</span><br><span class="line">-d    path of ntds.dit database</span><br><span class="line">-k    use specified SYSKEY</span><br><span class="line">-s    parse SYSKEY from specified system.hiv</span><br><span class="line">-r    read SYSKEY from registry</span><br><span class="line">-o    write output into</span><br><span class="line">-h    dump hash histories(if available)</span><br><span class="line">-p    dump description and path of home directory</span><br><span class="line">-m    dump machine accounts</span><br><span class="line">-u    USE UPPER-CASE-HEX</span><br></pre></td></tr></table></figure>
+
+<p>在ntdsdumpex.exe目录下cmd（ntds.dit和system在目录下）</p>
+<p>输入命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ntdsdumpex.exe -d ntds.dit -s system -o hash.txt -h</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112305179.png" alt="image-20220711230531132"></p>
+<p><strong>secretsdump.py</strong></p>
+<p>找到github上一个脚本</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/SecureAuthCorp/impacket">https://github.com/SecureAuthCorp/impacket</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 secretsdump.py -ntds ntds.dit -security SECURITY -system SYSTEM LOCAL -history</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112320995.png" alt="image-20220711232031954"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;07ab403ab740c1540c378bof5aaa4087&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2022DASCTF-MAY-出题人挑战赛"><a href="#2022DASCTF-MAY-出题人挑战赛" class="headerlink" title="2022DASCTF MAY 出题人挑战赛"></a>2022DASCTF MAY 出题人挑战赛</h2><h3 id="Misc-Working-1"><a href="#Misc-Working-1" class="headerlink" title="Misc|Working"></a>Misc|Working</h3><h4 id="rootme"><a href="#rootme" class="headerlink" title="rootme"></a>rootme</h4><h5 id="说明：ubuntu-123456请使用ssh连接"><a href="#说明：ubuntu-123456请使用ssh连接" class="headerlink" title="说明：ubuntu 123456请使用ssh连接"></a>说明：ubuntu 123456请使用ssh连接</h5><p>hint：flag位置在/root/flag.txt</p>
 <p>ssh连接</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssh -p 26245 ubuntu@node4.buuoj.cn</span><br><span class="line"></span><br><span class="line">ssh远程连接</span><br><span class="line">指令 ssh -p 27414 root@node4.buuoj.cn</span><br><span class="line">#-p指定端口，root为用户名，@后是ip地址</span><br><span class="line">第一次登陆输入yes</span><br></pre></td></tr></table></figure>
 
@@ -483,7 +809,17 @@ ssh连接
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DASCTF&#123;df061215-d984-4c40-b21a-6eb47d605ae0&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="Misc-Working-2"><a href="#Misc-Working-2" class="headerlink" title="Misc|Working"></a>Misc|Working</h3><h4 id="卡比"><a href="#卡比" class="headerlink" title="卡比"></a>卡比</h4><h5 id="说明：卡比可爱捏kirby⭐-（最终结果请使用DASCTF-包上）"><a href="#说明：卡比可爱捏kirby⭐-（最终结果请使用DASCTF-包上）" class="headerlink" title="说明：卡比可爱捏kirby⭐~（最终结果请使用DASCTF{}包上）"></a>说明：卡比可爱捏kirby⭐~（最终结果请使用DASCTF{}包上）</h5><p>file.png</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202205211233473.png" alt="file"></p>
+<p>一个一个对照，PTRH{GWDVSWVQBFISZSZ}</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202205211232569.png" alt="image-20220521123257507"></p>
+<p>DASCTF{GWDVSWVQBFISZSZ}提交错误，改小写也错？？？</p>
+<p>这里还有个维吉尼亚加密，密钥为kirby</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flagimverylikekirby</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DASCTF&#123;imverylikekirby&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id><a href="#" class="headerlink" title></a></h3>
                 
             </div>
             <hr/>
