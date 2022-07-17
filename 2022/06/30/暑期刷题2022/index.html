@@ -745,6 +745,44 @@ txt里面为坐标点
 <p>得出</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSA&#123;b274dddb2c7707ebe430dadcf1245c246713502d6e9579f00acd10a83f3da95e&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="CISCN2022华东北赛区【misc】snowberg"><a href="#CISCN2022华东北赛区【misc】snowberg" class="headerlink" title="CISCN2022华东北赛区【misc】snowberg"></a>CISCN2022华东北赛区【misc】snowberg</h3><p>snowberg.png</p>
+<p>stegsolve查看最低有效位时发现存在zip</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715221130882.png" alt="image-20220715221130882"></p>
+<p>另存出来</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715221223510.png" alt="image-20220715221223510"></p>
+<p>3个txt都是6byte，师傅说想到crc碰撞</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.txt</span><br><span class="line">python3 crc32.py reverse 0x12b18082</span><br><span class="line">2.txt</span><br><span class="line">python3 crc32.py reverse 0x17b1a8bc</span><br><span class="line">3.txt</span><br><span class="line">python3 crc32.py reverse 0xcac87829</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715221805549.png" alt="image-20220715221805549"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y0u_f0und_th1s_k3y</span><br></pre></td></tr></table></figure>
+
+<p>解开压缩包，得到<strong>63f0c7380cc3a35</strong></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715222002350.png" alt="image-20220715222002350"></p>
+<p>将IDAT块校验位的十六进制拼接，转ascii（难想到······）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">A32DEAF5</span><br><span class="line">55324673</span><br><span class="line">6447566B</span><br><span class="line">58312B6D</span><br><span class="line">4D787263</span><br><span class="line">30596B47</span><br><span class="line">76546142</span><br><span class="line">30633341</span><br><span class="line">39456746</span><br><span class="line">57766A67</span><br><span class="line">68716138</span><br><span class="line">6A2B4A34</span><br><span class="line">76733053</span><br><span class="line">4F387134</span><br><span class="line">71584F2B</span><br><span class="line">4F664B4F</span><br><span class="line">4969682B</span><br><span class="line">7A4F774C</span><br><span class="line">42653634</span><br><span class="line">4C32334D</span><br><span class="line">63756255</span><br><span class="line">54653164</span><br><span class="line">78413D3D</span><br><span class="line">91B45383</span><br><span class="line">DA7C22CB</span><br><span class="line">3C757085</span><br><span class="line">DF46DA02</span><br><span class="line">FD1060EC</span><br><span class="line">55DE54D5</span><br><span class="line">5D8A872D</span><br></pre></td></tr></table></figure>
+
+<p>这里不懂为什么将第一的IDAT块校验位去除而加上了IEND前的</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715222934945.png" alt="image-20220715222934945"></p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715222621981.png" alt="image-20220715222621981"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U2FsdGVkX1+mMxrc0YkGvTaB0c3A9EgFWvjghqa8j+J4vs0SO8q4qXO+OfKOIih+zOwLBe64L23McubUTe1dxA==</span><br></pre></td></tr></table></figure>
+
+<p>AES解密在captf中解出</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/image-20220715220922640.png" alt="image-20220715220922640"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;69b74fce-451b-46f2-b3dd-be2a9761a1c1&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ACTF新生赛2020-crypto-rsa0"><a href="#ACTF新生赛2020-crypto-rsa0" class="headerlink" title="[ACTF新生赛2020]crypto-rsa0"></a>[ACTF新生赛2020]crypto-rsa0</h3><p>附件</p>
+<p>output</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main//202207161253196.png" alt="image-20220716125320147"></p>
+<p>解压rsa0.py需要密码，010editor查看是不是伪加密</p>
+<p>发现09 00，将50 4B后面的09都改为00即可解压</p>
+<p>rsa0.py（rsa加密原理）</p>
+<p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main//202207161247603.png" alt="image-20220716124706540"></p>
+<p>将数值代入（来自大佬脚本）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = <span class="number">9018588066434206377240277162476739271386240173088676526295315163990968347022922841299128274551482926490908399237153883494964743436193853978459947060210411</span></span><br><span class="line">q = <span class="number">7547005673877738257835729760037765213340036696350766324229143613179932145122130685778504062410137043635958208805698698169847293520149572605026492751740223</span></span><br><span class="line">c = <span class="number">50996206925961019415256003394743594106061473865032792073035954925875056079762626648452348856255575840166640519334862690063949316515750256545937498213476286637455803452890781264446030732369871044870359838568618176586206041055000297981733272816089806014400846392307742065559331874972274844992047849472203390350</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">n = p*q</span><br><span class="line"></span><br><span class="line">phi = (p-<span class="number">1</span>) * (q-<span class="number">1</span>)</span><br><span class="line">d = inverse(e, phi)</span><br><span class="line">m = <span class="built_in">pow</span>(c, d, n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">actf&#123;n0w_y0u_see_RSA&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="蓝帽杯2022"><a href="#蓝帽杯2022" class="headerlink" title="蓝帽杯2022"></a>蓝帽杯2022</h2><h3 id="Misc-Woking"><a href="#Misc-Woking" class="headerlink" title="Misc|Woking"></a>Misc|Woking</h3><h4 id="domainhacker"><a href="#domainhacker" class="headerlink" title="domainhacker"></a>domainhacker</h4><p>domainhacker.pcapng</p>
 <p>http可导出一个1.rar</p>
 <p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main/202207112338014.png" alt="image-20220711233843970"></p>
@@ -819,7 +857,7 @@ txt里面为坐标点
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DASCTF&#123;imverylikekirby&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id><a href="#" class="headerlink" title></a></h3>
+
                 
             </div>
             <hr/>
