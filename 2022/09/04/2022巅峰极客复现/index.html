@@ -484,6 +484,7 @@ volatility分析
 
 <p><img src="https://cdn.moran233.xyz/https://raw.githubusercontent.com/Eden-222/imgbed/main//202209022051739.png" alt="image-20220817160021668"></p>
 <p>题目提示和微信有关，那个txt不知道咋弄下来？？？</p>
+<p>后面在复现过程中查看wp</p>
 <p>提取可疑文件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">volatility -f secret.raw --profile=Win7SP1x64 dumpfiles -Q 0x000000007d80a7d0 --dump-dir=./</span><br><span class="line">注：</span><br><span class="line">-Q的参数为内存地址</span><br><span class="line">--dump-dir的参数为导出文件的目录</span><br><span class="line">会保存在相应的目录，共三个：gift.jpg  wechat.txt  secret.zip（hint提取不出来）</span><br></pre></td></tr></table></figure>
 
